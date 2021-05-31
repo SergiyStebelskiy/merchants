@@ -16,7 +16,11 @@ const MerchantsTable = ({ data }: IProps) => {
     <div css={styles.tableWrap}>
       <table
         css={styles.table}
-        style={{ width: `${parentRef.current?.offsetWidth || 0}px` }}
+        style={{
+          width: parentRef.current?.offsetWidth
+            ? `${parentRef.current?.offsetWidth}px`
+            : "100%"
+        }}
       >
         <thead css={styles.thead}>
           <tr>

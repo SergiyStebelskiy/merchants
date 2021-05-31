@@ -1,0 +1,28 @@
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
+  background: rgba(248, 248, 248, 0.5);
+  backdrop-filter: blur(2px);
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+button, input, textarea{
+  outline: none;
+}
+textarea{
+  resize: none;
+}
+button{
+  cursor: pointer;
+}
+ul, ol{
+  list-style-type: none;
+}

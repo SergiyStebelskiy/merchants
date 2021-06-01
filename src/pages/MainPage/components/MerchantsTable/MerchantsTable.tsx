@@ -47,7 +47,13 @@ const MerchantsTable = ({ data }: IProps) => {
               <td css={styles.col}>{item.memoText || "-"}</td>
               <td css={styles.col}>
                 <div css={styles.moreBtnWrap}>
-                  <MoreBtn />
+                  <MoreBtn
+                    data={[
+                      { name: "Open", onClick: () => {} },
+                      { name: "View stories", onClick: () => {} },
+                      { name: "Delete", onClick: () => {} }
+                    ]}
+                  />
                 </div>
               </td>
             </tr>

@@ -1,11 +1,18 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { useState, useRef, FC } from "react"
+import { useState, useRef } from "react"
 import { jsx } from "@emotion/react"
 import { styles } from "./styles"
 import { ReactComponent as More } from "icons/more.svg"
 import useOutsideClicker from "hooks/useOutsideClicker"
-const MoreBtn: FC = (props: object) => {
+interface IDataItem {
+  name: string
+  onClick: Function
+}
+interface IProps {
+  data: Array<IDataItem>
+}
+const MoreBtn = ({ data, ...props }: IProps) => {
   const [visible, setVisible] = useState(false)
   const parentRef = useRef(null)
   useOutsideClicker(parentRef, () => setVisible(false))
@@ -14,9 +21,11 @@ const MoreBtn: FC = (props: object) => {
       <More css={styles.btn} onClick={() => setVisible(true)} />
       {visible && (
         <ul css={styles.dropdown}>
-          <li css={styles.item}>Open</li>
-          <li css={styles.item}>View stores</li>
-          <li css={styles.item}>Delete</li>
+          {data.map((item, index) => (
+            <li css={styles.item} onClick={() => item.onClick()} key={index}>
+              {item.name}
+            </li>
+          ))}
         </ul>
       )}
     </div>
